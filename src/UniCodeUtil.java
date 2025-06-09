@@ -38,7 +38,8 @@ public class UniCodeUtil {
         builder.append(s).append(" - ");
         int i = s.codePointAt(0);
         builder.append(i).append(" - ");
-        String type = CHAR_CATEGORIES.get(Character.getType(i));
+        int typeCode = Character.getType(i);
+        String type = CHAR_CATEGORIES.get(typeCode);
         builder.append(type);
         return builder.toString();
     }
