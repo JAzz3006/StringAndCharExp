@@ -4,18 +4,37 @@ import java.util.stream.Stream;
 public class Main {
 
     public static void main(String[] args) {
-        String test = "qwe^_) rTy:~#";
-        test.codePoints()
-                .mapToObj(cp -> new String(Character.toChars(cp)))
-                .map(UniCodeUtil::lineBuilder)
-                .forEach(System.out::println);
-        limitedStream();
+//        String test = "qwe^_) rTy:~#";
+//        test.codePoints()
+//                .mapToObj(cp -> new String(Character.toChars(cp)))
+//                .map(UniCodeUtil::lineBuilder)
+//                .forEach(System.out::println);
+        //limitedStream();
+        //stringToStream("whatever you want");
+        char[] chars = {'H', 'e', 'l', 'l', 'o'};
+        String result = String.copyValueOf(chars, 0, chars.length - 4);
+        System.out.println(result);
+
+
+
+
     }
 
     public static void limitedStream(){
-        Stream.iterate(100, i -> i+1)
-                .limit(10)
+        Stream.iterate(0, i -> i+1)
+                .limit(200000)
+                .filter(UniCodeUtil::isEmoji)
+                .map(UniCodeUtil::lineBuilder)
                 .forEach(System.out::println);
 
+    }
+    public static void stringToStream (String s){
+        Stream.iterate(0, i -> i + 1)
+                .limit(s.length())
+                .map(s::charAt)
+                .forEach(System.out::println);
+    }
+    public static String getRandomEmoji(){
+        return String.valueOf(Character.toChars(129321));
     }
 }

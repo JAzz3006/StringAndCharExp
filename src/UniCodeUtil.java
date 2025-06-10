@@ -43,5 +43,24 @@ public class UniCodeUtil {
         builder.append(type);
         return builder.toString();
     }
+    public static String lineBuilder(int cp){
+            StringBuilder builder = new StringBuilder();
+            builder.append(cp).append(" - ");
+            String symbol = new String(Character.toChars(cp));
+            builder.append(symbol).append(" - ");
+            int typeCode = Character.getType(cp);
+            String type = CHAR_CATEGORIES.get(typeCode);
+            builder.append(type);
+            return builder.toString();
+    }
+    public static boolean isEmoji(int codePoint) {
+        return (codePoint >= 0x1F600 && codePoint <= 0x1F64F)     // Emoticons
+                || (codePoint >= 0x1F300 && codePoint <= 0x1F5FF)     // Misc Symbols and Pictographs
+                || (codePoint >= 0x1F680 && codePoint <= 0x1F6FF)     // Transport and Map
+                || (codePoint >= 0x1F900 && codePoint <= 0x1F9FF)     // Supplemental Symbols and Pictographs
+                || (codePoint >= 0x1FA70 && codePoint <= 0x1FAFF)     // Symbols and Pictographs Extended-A
+                || (codePoint >= 0x2600 && codePoint <= 0x26FF)       // Misc symbols (includes ☀, ☁)
+                || (codePoint >= 0x2700 && codePoint <= 0x27BF);      // Dingbats (includes ✂, ✈)
+    }
 
 }
