@@ -13,7 +13,11 @@ public class Main {
         //stringToStream("whatever you want");
         char[] chars = {'H', 'e', 'l', 'l', 'o'};
         String result = String.copyValueOf(chars, 0, chars.length - 4);
-        System.out.println(result);
+        String exp = "screw you";
+        String exp1 = "Whatever";
+        int i = 5;
+
+        System.out.printf("%s guys I'm going home - %d", exp, i);
 
 
 
