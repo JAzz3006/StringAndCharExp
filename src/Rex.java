@@ -29,11 +29,18 @@ public class Rex {
         String template = "Имя: %-10s | Счет: %,.2f | Дата: %3$td.%3$tm.%3$tY";
         System.out.println(template.formatted("Грег", 123456.789, LocalDateTime.now()));
         getKodirovochka();
+        qwerty();
 
     }
     public static void getKodirovochka(){
         Charset defaultCharset = Charset.defaultCharset();
         System.out.println(defaultCharset.name());
     }
+    public static void qwerty(){
+        String regex = "[a-zA-Z]+";
+        String s = "Alice";
+        System.out.println(s.matches(regex));
+    }
+
 
 }
